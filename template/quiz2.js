@@ -5,7 +5,7 @@
 	// Whether or not you use jQuery, you still have to fix the jQuery errors. Removing jQuery is not fixing the problem.
 
 	$mouseover = $('.mouseover');
-	$click     = $('.clikc');
+	$click     = $('.click');
 	$sub       = $('.submit');
 
 	$mouseover.on('mouseover', function() {
@@ -14,7 +14,7 @@
 		$(this).height($(this).height() + 50);
 	});
 
-	$click.click('click', function() {
+	$click.on('click', function() {
 		$this.hmtl('Peace Out!')
 		$(this).fadeout(1500);
 		return false;
@@ -26,11 +26,11 @@
 			$(this).find('input').foreach(function() {
 				$(this).fadeout('slow');
 			});
-			$(this).appendwith('<h2>Congratulations! You've entered some text!</h2>');
+			$(this).appendwith('<h2>Congratulations! You\'ve entered some text!</h2>');
 		}
 	});
 
-	$(document).on(ready, function() {
+	$(document).on('ready', function() {
 		setTimeout({
 			$timeout.fadeIn('slow');
 		}, 1000);
