@@ -9,18 +9,18 @@
 	$sub       = $('.submit');
 
 	$mouseover.on('mouseover', function() {
-		$this = $(this);
+		$(this) = $(this);
 		$(this).html('Scrooge McDuck!');
 		$(this).height($(this).height() + 50);
 	});
 
 	$click.on('click', function() {
-		$this.hmtl('Peace Out!')
+        $(this).hmtl('Peace Out!')
 		$(this).fadeout(1500);
 		return false;
 	});
 
-	$submit.on('submit', function(e) {
+	$sub.on('submit', function(e) {
 		e.preventDefault();
 		if ($(this).find('input[type="text"]').val() !== '') {
 			$(this).find('input').foreach(function() {
@@ -31,8 +31,8 @@
 	});
 
 	$(document).on('ready', function() {
-		setTimeout({
-			$timeout.fadeIn('slow');
+		setTimeout(function(){
+			$("#timeout").fadeIn('slow');
 		}, 1000);
 	});
 
