@@ -8,12 +8,12 @@
 	$click = $('.click');
 	$sub = $('.submit');
 
-	$mouseover.mouseover( function() {
+	$mouseover.on('mouseover', function() {
 		$(this).html('Scrooge McDuck!');
 		$(this).height($(this).height() + 50);
 	});
 
-	$click.click( function() {
+	$click.on('click', function() {
         $(this).html('Peace Out!');
 		$(this).fadeOut(1500);
 		return false;
@@ -22,10 +22,10 @@
 	$sub.on('submit', function(e) {
 		e.preventDefault();
 		if ($(this).find('input[type="text"]').val() !== '') {
-			$(this).find('input').foreach(function() {
+			$(this).find('input').each(function() {
 				$(this).fadeOut('slow');
 			});
-			$(this).appendwith('<h2>Congratulations! You\'ve entered some text!</h2>');
+			$(this).append('<h2>Congratulations! You\'ve entered some text!</h2>');
 		}
 	});
 
