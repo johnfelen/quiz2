@@ -35,19 +35,26 @@
 		}, 1000);
 	});
     
-    var movies;
-    //                console.log( movies[ Math.floor( Math.random() * movies.length ) ] );
-    
-    $("#title").on( 'click', function()
+    var firstCall = true;
+    $( "#title" ).on( "click", function()
     {
-        $.ajax(
-        {
-            url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
-            success: function( data )
+
+            $.ajax(
             {
-                movies = data.data;
-            }
-        });
+                url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
+                success: function( data )
+                {
+                    var movies = data.data;
+                    var randMovie = movies[ Math.floor( Math.random() * movies.length ) ];
+                    $( "#currMovie" ).html( randMovie );
+                }
+            });
+        if( firstCall )
+        {
+            $(this).val( "Change It" );
+            firstCall = false;
+        }
+
     });
     
     
