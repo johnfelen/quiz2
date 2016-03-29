@@ -36,6 +36,11 @@
 	});
     
     var firstCall = true;
+    if( document.cookie !== "" )    
+    {
+        $( "#currMovie" ).html( document.cookie );
+    }
+    
     $( "#title" ).on( "click", function()
     {
         $.ajax(
