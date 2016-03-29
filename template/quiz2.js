@@ -9,7 +9,7 @@
 	$sub = $('.submit');
 
 	$mouseover.on('mouseover', function() {
-		$(this).html('Scrooge McDuck!');
+	$(this).html('Scrooge McDuck!');
 		$(this).height($(this).height() + 50);
 	});
 
@@ -31,8 +31,22 @@
 
 	$(document).on('ready', function() {
 		setTimeout(function(){
-			$(".timeout").fadeIn('slow');
+			$(".timeout").fadeIn('slow');  
 		}, 1000);
 	});
-
+    
+    var movies;
+    $(".title").on( 'click', function()
+    {
+        $.ajax(
+        {
+            url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
+            success: function( arr )
+            {
+                movies = arr.data;
+                console.log( movies );
+            }
+        });
+    });
+    
 })();

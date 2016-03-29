@@ -53,4 +53,10 @@ a {
 
 .timeout {
 	background: #CCCCCC;
+    display: none;
+}
+
+.partTwo
+{
+    background: yellow;
 }
