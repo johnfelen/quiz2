@@ -36,17 +36,20 @@
 	});
     
     var movies;
-    $(".title").on( 'click', function()
+    //                console.log( movies[ Math.floor( Math.random() * movies.length ) ] );
+    
+    $("#title").on( 'click', function()
     {
         $.ajax(
         {
             url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
-            success: function( arr )
+            success: function( data )
             {
-                movies = arr.data;
-                console.log( movies );
+                movies = data.data;
             }
         });
     });
+    
+    
     
 })();
