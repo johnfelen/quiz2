@@ -38,26 +38,28 @@
     var firstCall = true;
     $( "#title" ).on( "click", function()
     {
-
-            $.ajax(
+        $.ajax(
+        {
+            url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
+            success: function( data )
             {
-                url: "http://www.mattbowytz.com/simple_api.json?data=quizData",
-                success: function( data )
-                {
-                    var movies = data.data;
-                    var randMovie = movies[ Math.floor( Math.random() * movies.length ) ];
-                    $( "#currMovie" ).html( randMovie );
-                }
-            });
+                var movies = data.data;
+                var randMovie = movies[ Math.floor( Math.random() * movies.length ) ];
+                $( "#currMovie" ).html( randMovie );
+            }
+        });
+        
         if( firstCall )
         {
             $(this).val( "Change It" );
             firstCall = false;
-            $( "#currMovie" ).after( $("<input type=\"button\" id=\"keep\" value=\"Keep It\">") );
+            $( "#currMovie" ).after( $( "<input type=\"button\" id='keep' value=\"Keep It\">" ) );
         }
-
     });
     
-    
+    $( document ).on( "click", "#keep", function()
+    {
+        document.cookie = $( "#currMovie" ).html();
+    });
     
 })();
