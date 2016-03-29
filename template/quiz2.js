@@ -53,6 +53,7 @@
         {
             $(this).val( "Change It" );
             firstCall = false;
+            $( "#currMovie" ).after( $("<input type=\"button\" id=\"keep\" value=\"Keep It\">") );
         }
 
     });
