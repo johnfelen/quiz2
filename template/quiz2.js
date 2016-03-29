@@ -14,8 +14,8 @@
 	});
 
 	$click.click( function() {
-        $(this).hmtl('Peace Out!');
-		$(this).fadeout(1500);
+        $(this).html('Peace Out!');
+		$(this).fadeOut(1500);
 		return false;
 	});
 
@@ -23,7 +23,7 @@
 		e.preventDefault();
 		if ($(this).find('input[type="text"]').val() !== '') {
 			$(this).find('input').foreach(function() {
-				$(this).fadeout('slow');
+				$(this).fadeOut('slow');
 			});
 			$(this).appendwith('<h2>Congratulations! You\'ve entered some text!</h2>');
 		}
